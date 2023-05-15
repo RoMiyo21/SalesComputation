@@ -5,7 +5,7 @@
 #include <cstring>	 
 #include <string>
 #include <stdlib.h>		//for system("cls)
-#include <stdexcept>	//error handling
+#include <stdexcept>		//error handling
 #include <limits>
 
 using namespace std;
@@ -20,7 +20,7 @@ struct Sales_Computation {
 	float TaxRate;
 	float TotalDue;
 
-	Sales_Computation() { //Constructor - use to initialize the member of strucuture
+	Sales_Computation() { 	//Constructor - use to initialize the member of strucuture
 		Variation[20];
 		ProductNumber = 0;
 		PricePerUnit = 0;
@@ -34,7 +34,7 @@ struct Sales_Computation {
 
 float computeOrderPrice(Sales_Computation& product);	//return the subtotal of each order.
 
-float applyDiscounts(Sales_Computation& product, float& _subTotal);		//return the 20% discount amount if the user is a senior citizen.
+float applyDiscounts(Sales_Computation& product, float& _subTotal);	//return the 20% discount amount if the user is a senior citizen.
 
 float applyTax(Sales_Computation& product, float& Subtotal, float& discount);	//return the 7% of subtotal amount as Tax
 
@@ -100,7 +100,7 @@ int main()
 					if (numOfOrder >= 1 && numOfOrder <= 50) {			// If input is valid, break out of the loop					
 						break;
 					}
-					else {												// If input is invalid, prompt the user input again
+					else {					 			// If input is invalid, prompt the user input again
 						cout << "Error: Only Number between \"1-50\" is accepted!" << endl << endl;
 					}
 				}
@@ -109,41 +109,41 @@ int main()
 			
 				for (int i = 0; i < numOfOrder; i++) {
 					cin.ignore();
-					cout << "\n  Enter Product Variation: ";											// getting user input
+					cout << "\n  Enter Product Variation: ";			// getting user input
 					cin.getline(product[i].Variation, 20);
 
-					cout << "  Enter Product Price    : ";												// getting user input
+					cout << "  Enter Product Price    : ";				// getting user input
 					cin >> product[i].PricePerUnit;
 					if ((cin.fail()) || (product[i].PricePerUnit != 100) && (product[i].PricePerUnit != 120) && (product[i].PricePerUnit != 150) && (product[i].PricePerUnit != 170)) {	//check if price is invalid
-						cin.clear();		 															// clear/remove any error set in cin
+						cin.clear();		 										// clear/remove any error set in cin
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');							// ignore any remaining input
-						throw invalid_argument("Invalid Price!");										// throw an error message to the user
+						throw invalid_argument("Invalid Price!");								// throw an error message to the user
 					}
-					cout << "  Enter Product Number   : ";												// getting user input
+					cout << "  Enter Product Number   : ";										// getting user input
 					cin >> product[i].ProductNumber;
 					if ((cin.fail()) || (product[i].ProductNumber < 100 || product[i].ProductNumber > 110) && (product[i].ProductNumber < 120 || product[i].ProductNumber > 130) &&
-						(product[i].ProductNumber < 220 || product[i].ProductNumber > 230) && (product[i].ProductNumber < 240 || product[i].ProductNumber > 250)) {				//check if Product Number is invalid
-						cin.clear();																	// clear/remove any error set in cin
+						(product[i].ProductNumber < 220 || product[i].ProductNumber > 230) && (product[i].ProductNumber < 240 || product[i].ProductNumber > 250)) {			//check if Product Number is invalid
+						cin.clear();												// clear/remove any error set in cin
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');							// ignore any remaining input
-						throw invalid_argument("Invalid Product Number!");								// throw an error message to the user
+						throw invalid_argument("Invalid Product Number!");							// throw an error message to the user
 					}
-					cout << "  Enter Order Quantity   : ";												// getting user input
+					cout << "  Enter Order Quantity   : ";										// getting user input
 					cin >> product[i].QuantitySold;
 					if (cin.fail() || (product[i].QuantitySold < 1 || product[i].QuantitySold > 50)) {	// check if Quantity is invalid
-						cin.clear();																	// clear/remove any error set in cin
+						cin.clear();												// clear/remove any error set in cin
 						cin.ignore(numeric_limits<streamsize>::max(), '\n');							// ignore any remaining input
-						throw invalid_argument("Invalid Order Quantity!");								// throw an error message to the user
+						throw invalid_argument("Invalid Order Quantity!");							// throw an error message to the user
 					}
-					subTotal += computeOrderPrice(product[i]);											// adding all the order subtotal
+					subTotal += computeOrderPrice(product[i]);									// adding all the order subtotal
 				}
 
 				cout << "  Are you a Senior Citizen(Y/N)? ";
 				cin >> response;
 				if (response == 'Y' || response == 'y') {
 					for (int i = 0; i < numOfOrder; i++) {
-						seniorDiscount = applyDiscounts(product[i], subTotal);								 // applying discount to the computed subtotal
+						seniorDiscount = applyDiscounts(product[i], subTotal);					 // applying discount to the computed subtotal
 
-						ValueAddedTax = applyTax(product[i], subTotal, seniorDiscount);						// applying Tax 
+						ValueAddedTax = applyTax(product[i], subTotal, seniorDiscount);				// applying Tax 
 						totalDue = computeTotalSales(product[i], subTotal, seniorDiscount, ValueAddedTax);	// compute all the total amount of order
 					}
 				}
@@ -151,7 +151,7 @@ int main()
 					for (int i = 0; i < numOfOrder; i++) {
 						subTotal += computeOrderPrice(product[i]);	
 
-						ValueAddedTax = applyTax(product[i], subTotal, seniorDiscount);						// applying Tax 
+						ValueAddedTax = applyTax(product[i], subTotal, seniorDiscount);				// applying Tax 
 						totalDue = computeTotalSales(product[i], subTotal, seniorDiscount, ValueAddedTax);	// compute all the total amount of order
 					}
 				}
@@ -164,12 +164,12 @@ int main()
 				while (true) {
 					cout << "  Enter cash for order payment: ";					// ask the user to enter cash for payment
 					cin >> customerCash;
-					if (customerCash >= totalDue) {								// If input is valid, break out of the loop
+					if (customerCash >= totalDue) {							// If input is valid, break out of the loop
 						customerChange = customerCash - totalDue;				// getting the sukli ^_^			
 						cout << "Notice: Succesfully paid!" << endl << endl;
 						break;
 					}
-					else {														// If input is invalid, clear the input stream and ignore the invalid input
+					else {										
 						cout << "Error: Not enough cash to pay the bill. Please enter a sufficient amount!" << endl << endl;
 					}
 				}
@@ -252,7 +252,7 @@ float computeOrderPrice(Sales_Computation& product) {
 		return product.SubTotal = product.PricePerUnit * product.QuantitySold;
 	}
 	else {
-		throw invalid_argument("Product Price or Product Number is incorrect!");												// throw error message if the user enter out of range Price and Product Number
+		throw invalid_argument("Product Price or Product Number is incorrect!");	// throw error message if the user enter out of range Price and Product Number
 	}
 }
 
