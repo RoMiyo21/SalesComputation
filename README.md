@@ -44,3 +44,7 @@ D.	Exit: exits the program.
 ![Menu](https://github.com/RoMiyo21/SalesComputation/assets/133717480/ad75938d-1fb7-4605-95b8-c7cd4c0104cc)
 
 ![image](https://github.com/RoMiyo21/SalesComputation/assets/133717480/46191c70-b84d-4c95-bfe8-3b0c1920d5ed)
+
+![image](https://github.com/RoMiyo21/SalesComputation/assets/133717480/0ed51acb-4273-44d1-9632-9d67a4264cbc)
+
+![image](https://github.com/RoMiyo21/SalesComputation/assets/133717480/fb18e9e6-ab5b-4d37-b979-cc9aa58aafb6)
