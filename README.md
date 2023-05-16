@@ -40,3 +40,5 @@ B.	Order List: display all the details of the order from array of structure.
 C.	Sales Receipt: displays the details of the order and writes them to the SalesInfo.txt file.
 
 D.	Exit: exits the program.
+
+![Menu](https://github.com/RoMiyo21/SalesComputation/assets/133717480/ad75938d-1fb7-4605-95b8-c7cd4c0104cc)
