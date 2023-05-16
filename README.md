@@ -42,3 +42,5 @@ C.	Sales Receipt: displays the details of the order and writes them to the Sales
 D.	Exit: exits the program.
 
 ![Menu](https://github.com/RoMiyo21/SalesComputation/assets/133717480/ad75938d-1fb7-4605-95b8-c7cd4c0104cc)
+
+![image](https://github.com/RoMiyo21/SalesComputation/assets/133717480/46191c70-b84d-4c95-bfe8-3b0c1920d5ed)
