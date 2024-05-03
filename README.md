@@ -1,3 +1,4 @@
+1st Year Final Project
 
 Sales Computation system allows users to input the product they want to order base on, product variation, product price, product number, and the quantity they want to purchase. The program will then compute the subtotal, discount, Value Added Tax(VAT), and total due of the order. The user then input the amount of cash given, and the program will compute the change amount.
 
